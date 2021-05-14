@@ -32,6 +32,10 @@
     background-color: #ffceab;
 }
 
+.travado {
+    background-color: #585858;
+}
+
 .error {
     background-color: #c95c5c;
 }

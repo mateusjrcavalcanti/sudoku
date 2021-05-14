@@ -267,16 +267,12 @@ function verificaRepeticoes(table, linesGroup, columnsGroup, posicao) {
     let grupoPosicao = posicaoGrupo(grupos, posicao)
         //console.log(posicao, grupoPosicao);
     for (let j = 0; j < grupos[grupoPosicao].length; j++) {
+        if (grupo.find(element => element == table[grupos[grupoPosicao][j][0]][grupos[grupoPosicao][j][1]]) != undefined) {
+            console.log(grupoPosicao, j, grupo, 'eita');
+        }
         if (table[grupos[grupoPosicao][j][0]][grupos[grupoPosicao][j][1]] != 'vazio') grupo.push(table[grupos[grupoPosicao][j][0]][grupos[grupoPosicao][j][1]]);
+        //console.log(grupoPosicao, j, grupos[grupoPosicao][j], grupo, table[grupos[grupoPosicao][j][0]][grupos[grupoPosicao][j][1]]);
     }
-
-    let resultados = [];
-    let idx = ['a', 'b', 'a', 'c', 'a', 'pesquisar'].indexOf('pesquisar');
-    while (idx != -1) {
-        resultados.push(idx);
-        idx = array.indexOf(elemento, idx + 1);
-    }
-    console.log(resultados);
 }
 
 function posicaoGrupo(grupos, posicao) {
