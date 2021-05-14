@@ -8,6 +8,9 @@
     <!-- Custom styles -->
     <link href="./style.css" rel="stylesheet">
 </head>
+
+<body>
+    <main>
         <div class="container">
             <h1 class="mt-4">Sudoku</h1>
             <p>Adapatado em formas geométricas.</p>
@@ -79,7 +82,7 @@
                 <div class="col-4">
                     <div class="row">
                         <div class="d-grid gap-2">
-                            <button class="btn btn-primary" type="button">Novo Jogo</button>
+                            <button class="btn btn-primary" onClick="window.location.reload();" type="button">Novo Jogo</button>
                         </div>
                     </div>
                     <div class="row mt-3">
@@ -106,7 +109,9 @@
                     </div>
                 </div>
             </div>
+    </main>
     <!-- script game -->
     <script src="./game.js"></script>
+</body>
 
 </html>
