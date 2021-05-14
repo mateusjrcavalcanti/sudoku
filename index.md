@@ -10,7 +10,6 @@
 </head>
 
 <body>
-    <main>
         <div class="container">
             <h1 class="mt-4">Sudoku</h1>
             <p>Adapatado em formas geométricas.</p>
@@ -109,7 +108,6 @@
                     </div>
                 </div>
             </div>
-    </main>
     <!-- script game -->
     <script src="./game.js"></script>
 </body>
