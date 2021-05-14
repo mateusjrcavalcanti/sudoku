@@ -8,7 +8,6 @@
     <!-- Custom styles -->
     <link href="./style.css" rel="stylesheet">
 </head>
-
         <div class="container">
             <h1 class="mt-4">Sudoku</h1>
             <p>Adapatado em formas geométricas.</p>
@@ -107,9 +106,7 @@
                     </div>
                 </div>
             </div>
-
     <!-- script game -->
     <script src="./game.js"></script>
-
 
 </html>
