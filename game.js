@@ -61,8 +61,17 @@ function posicoesGrupos(table, linesGroup, columnsGroup) {
 }
 
 //Retorna uma valor aleatório dentro de um range
-function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min))) + Math.ceil(min);
+function getRandomInt(min, max, quantidade = 1) {
+    if (quantidade == 1)
+        return Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min))) + Math.ceil(min);
+    else {
+        let numeros = [];
+        for (let i = 0; i < quantidade; i++) {
+            numeros[i] = Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min))) + Math.ceil(min);
+        }
+        return numeros;
+
+    }
 }
 
 //Remove posições de mesmo grupo
@@ -186,7 +195,7 @@ function funcoesTroca() {
             elementSelected = document.querySelectorAll("div.row div.col-8 div.mx-auto div.row div.col-2 img[row='" + this.firstChild.getAttribute('row') + "'][col='" + this.firstChild.getAttribute('col') + "']")[0];
             //console.log(elementSelected);
             //console.log(this);
-            this.classList.toggle('selected');
+            if (elementSelected != undefined) this.classList.toggle('selected');
         });
     }
 
@@ -200,14 +209,46 @@ function funcoesTroca() {
     }
 }
 
+function getRandom(maxNum, qtdMax) {
+    let n = 1;
+    const lista = [];
+    const val = () => Math.floor(Math.random() * maxNum + 1);
+
+    do {
+        while (n <= qtdMax) {
+            let numero = val();
+
+            if (lista.indexOf(numero) === -1) {
+                lista.push(numero)
+            } else { n -= 1 };
+            n += 1
+        };
+    } while (lista.length < qtdMax);
+
+    lista.sort((a, b) => a - b);
+    console.log(lista);
+    return lista;
+}
+
 function figurasTabela(tabela) {
+    let numeros = getRandom(36, 20);
+    let contador = 0;
     for (let linha = 0; linha < tabela.length; linha++) {
         for (let coluna = 0; coluna < tabela[linha].length; coluna++) {
             if (tabela[linha][coluna] == 'vazio') document.location.reload(true);
-            else {
+            else if (numeros.find(element => element == contador) != undefined) {
+                console.log(numeros.find(element => element = contador));
                 let elemento = document.querySelectorAll("div.row div.col-8 div.mx-auto div.row div.col-2 img[row='" + linha + "'][col='" + coluna + "']")[0];
                 elemento.setAttribute("src", './img/' + tabela[linha][coluna] + '.svg');
+                elemento.removeAttribute('row');
+                elemento.removeAttribute('col');
+                elemento.parentNode.classList.toggle('travado');
             }
+            contador++;
         }
     }
+}
+
+function verificaRepeticoes() {
+    console.log(elementSelected = document.querySelectorAll("div.row div.col-8 div.mx-auto div.row div.col-2 img[row='" + this.firstChild.getAttribute('row') + "'][col='" + this.firstChild.getAttribute('col') + "']"))
 }
